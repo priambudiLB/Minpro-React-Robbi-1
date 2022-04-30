@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Karen",
+      "email": "a@a.a",
+      "password": "123",
+      "address": "jl. jalan 2",
+      "join_date": "2020-01-01",
+      "phone": "081234567890"
+    },
+    {
+      "id": "2",
+      "name": "Naruto",
+      "email": "naruto@konoha.go.kn",
+      "password": "123",
+      "address": "jl. jalan 3",
+      "join_date": "2020-02-01",
+      "phone": "081234567890"
+    },
+    {
+      "id": "3",
+      "name": "Luffy",
+      "email": "luffy@konoha.go.kn",
+      "password": "123",
+      "address": "jl. jalan 3",
+      "join_date": "2020-02-01",
+      "phone": "081234567890"
+    }
+  ]
+}

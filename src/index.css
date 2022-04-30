@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  background-color: #22668A;
+  color: white;
+}
+
+.list-group-item.active {
+  background-color: #22668A;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media only screen and (max-height: 1050px) {
+  .hasil {
+    height: 620px;
+  }
+
+  .menu {
+    height: 780px;
+  }
+
+  .produk {
+    margin-Bottom: 25px
+  }
+}
+
+/* .overflow-auto::-webkit-scrollbar {
+  display:none
+} */

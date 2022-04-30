@@ -46,6 +46,8 @@ const NavbarComponent = () => {
                         <a href="/" style={{ color: 'white' }} className="m-4" variant="none">Home</a>
                         {" "}
 
+                        <a href="/akun" style={{ color: 'white' }} className="m-4" variant="none">Akun</a>
+
                         {buttonAlt}
 
                     </Nav>

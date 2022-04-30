@@ -55,7 +55,15 @@ export default class Home extends Component {
 
     axios
       // .get(API_URL + "products")
-      .get(API_URL + "products?category.nama=" + this.state.categoryDipilih)
+      .get(API_URL + "products?category.nama=" + this.state.categoryDipilih,
+        {
+          headers: {
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password'),
+            accessToken: localStorage.getItem('accessToken')
+          }
+        }
+      )
       .then((res) => {
 
         console.log("respons :", res);
@@ -71,7 +79,15 @@ export default class Home extends Component {
     //----------------------------------------------------------------------------------------------------------------------
 
     axios
-      .get(API_URL + "categories")
+      .get(API_URL + "categories",
+        {
+          headers: {
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password'),
+            accessToken: localStorage.getItem('accessToken')
+          }
+        }
+      )
       .then((res) => {
 
         const categories = res.data;
@@ -95,7 +111,16 @@ export default class Home extends Component {
 
     axios
       // .get(API_URL + "products")
-      .get(API_URL + "products?category.nama=" + value)
+      .get(API_URL + "products?category.nama=" + value,
+
+        {
+          headers: {
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password'),
+            accessToken: localStorage.getItem('accessToken')
+          }
+        }
+      )
       .then((res) => {
 
         console.log("respons :", res);
@@ -130,7 +155,16 @@ export default class Home extends Component {
   getListKeranjang = () => {
     axios
       // .get(API_URL + "products")
-      .get(API_URL + "keranjangs")
+      .get(API_URL + "keranjangs",
+
+        {
+          headers: {
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password'),
+            accessToken: localStorage.getItem('accessToken')
+          }
+        }
+      )
       .then((res) => {
 
         const keranjangs = res.data;
@@ -150,7 +184,15 @@ export default class Home extends Component {
 
     axios
       // .get(API_URL + "products")
-      .get(API_URL + "keranjangs?product.id=" + value.id)
+      .get(API_URL + "keranjangs?product.id=" + value.id,
+        {
+          headers: {
+            email: localStorage.getItem('email'),
+            password: localStorage.getItem('password'),
+            accessToken: localStorage.getItem('accessToken')
+          }
+        }
+      )
       .then((res) => {
 
         if (res.data.length === 0) {
@@ -222,8 +264,6 @@ export default class Home extends Component {
     })
   }
 
-  //----------------------------------------------------------------------------------------------------------------------
-
   handleSubmit = (event) => {
 
     event.preventDefault();
@@ -283,23 +323,17 @@ export default class Home extends Component {
 
   }
 
-  //----------------------------------------------------------------------------------------------------------------------
-
   handleShow = () => {
     this.setState({
       showModal: true,
     })
   }
 
-  //----------------------------------------------------------------------------------------------------------------------
-
   handleClose = () => {
     this.setState({
       showModal: false,
     })
   }
-
-  //----------------------------------------------------------------------------------------------------------------------
 
   handleEdit = (event) => {
 
@@ -332,8 +366,6 @@ export default class Home extends Component {
       });
 
   }
-
-  //----------------------------------------------------------------------------------------------------------------------
 
   handleDelete = (id) => {
 
@@ -373,8 +405,6 @@ export default class Home extends Component {
 
   }
 
-  //----------------------------------------------------------------------------------------------------------------------
-
   onChangeCategories = (e) => {
 
     // console.log(e.target.value);
@@ -391,6 +421,8 @@ export default class Home extends Component {
   }
 
   //----------------------------------------------------------------------------------------------------------------------
+
+  // MULAI MASUK KE BAGIAN MODAL EDIT PRODUCT
 
   handleShowEdit = (id) => {
 
@@ -511,7 +543,7 @@ export default class Home extends Component {
   render() {
 
     const { menus, categoryDipilih, keranjangs, categories } = this.state;
-    
+
     return (
       <div className="mt-3">
 
@@ -543,16 +575,16 @@ export default class Home extends Component {
 
 
                   {((localStorage.getItem('accessToken'))) ?
-  
+
                     <>
-  
+
                       <Button
                         onClick={() => this.handleShow()}>
-  
+
                         Tambah Produk
-  
+
                       </Button>
-  
+
                       <ModalAddProduct
                         {...this.state}
                         handleClose={this.handleClose}
@@ -568,11 +600,11 @@ export default class Home extends Component {
                         handleEditProduk={this.handleEditProduk}
                         onChangeCategoriesEdit={this.onChangeCategoriesEdit}
                       />
-  
+
                     </>
-  
+
                     :
-  
+
                     ""
                   }
 
@@ -584,18 +616,18 @@ export default class Home extends Component {
 
                   {menus && menus.map((menu, index) => (
                     // <h2> {menu.nama} </h2>
-                    
+
                     // MENUS
-                    
+
                     <Menus
-                    key={index}
-                    menu={menu}
-                    masukKeranjang={this.masukKeranjang}
-                    handleEdit={this.handleEdit}
-                    handleDelete={this.handleDelete}
-                    handleShowEdit={this.handleShowEdit}
+                      key={index}
+                      menu={menu}
+                      masukKeranjang={this.masukKeranjang}
+                      handleEdit={this.handleEdit}
+                      handleDelete={this.handleDelete}
+                      handleShowEdit={this.handleShowEdit}
                     />
-                    
+
                   ))}
 
                 </Row>
@@ -607,7 +639,7 @@ export default class Home extends Component {
               <Hasil
                 keranjangs={keranjangs} {...this.props} getListKeranjang={this.getListKeranjang}
               />
-              
+
             </Row>
 
           </Container>

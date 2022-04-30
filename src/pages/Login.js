@@ -55,11 +55,11 @@ const Login = () => {
         }
 
         axios.post(API_URL + "auth/login", user)
-        .then(res => {
+            .then(res => {
                 console.log(res.data.access_token)
 
                 if (res?.data?.access_token) {
-                    
+
                     const accessToken = `Bearer ${res.data.access_token}`
 
                     localStorage.setItem('accessToken', accessToken)
@@ -82,12 +82,22 @@ const Login = () => {
 
                 <label>
                     E-mail:
-                    <input value={email} onChange={handleEmail} type="text" placeholder='email'></input>
+                    <input
+                        value={email}
+                        onChange={handleEmail}
+                        type="text"
+                        placeholder='email'
+                        style={{ marginLeft: '60px' }}></input>
                 </label>
 
                 <label>
                     Password:
-                    <input value={password} onChange={handlePassword} type="password" placeholder='password'></input>
+                    <input
+                        value={password}
+                        onChange={handlePassword}
+                        type="password"
+                        placeholder='password'
+                        style={{ marginLeft: '39px' }}></input>
                 </label>
 
                 <Button

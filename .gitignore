@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 #.md
+*.md
 App.md
 tutorial-react.md
 App-backup.md
@@ -30,8 +31,12 @@ Flow-modal.md
 Flow-component.md
 Flow-pages.md
 README.md
+auth.md
 
 #.json
 db-kasir-2-backup.json
 db-kasir-backup.json
 users-backup.json
+
+#js
+Home-backup.js

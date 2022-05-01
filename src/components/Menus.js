@@ -72,18 +72,23 @@ const Menus = ({ menu, masukKeranjang, handleDelete, handleShowEdit, ModalEditPr
 
                         :
 
-                        ""
+                        // ""
+
+                        <Button
+                            className="btn btn-success"
+                            onClick={() => masukKeranjang(menu)}>
+                            Tambah ke Keranjang
+                        </Button>
 
                     }
 
                     {/*--- EDIT ---*/}
 
-
-                    <Button
+                    {/* <Button
                         className="btn btn-success"
                         onClick={() => masukKeranjang(menu)}>
                         Tambah ke Keranjang
-                    </Button>
+                    </Button> */}
 
                 </Card.Body>
 

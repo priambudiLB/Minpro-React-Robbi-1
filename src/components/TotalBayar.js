@@ -17,10 +17,18 @@ export default class TotalBayar extends Component {
             menus: this.props.keranjangs
         }
 
-        axios.post(API_URL + "pesanans", pesanan).then((res) => {
-           
-            window.location.href = "/sukses"
-        })
+        axios.post(API_URL + "pesanans", pesanan,
+            {
+                headers: {
+
+                    authorization: localStorage.getItem('accessToken'),
+
+                }
+            })
+            .then((res) => {
+
+                window.location.href = "/sukses"
+            })
     }
 
     //----------------------------------------------------------------------------------------------------------------------
@@ -54,7 +62,7 @@ export default class TotalBayar extends Component {
                             onClick={() => this.submitTotal(totalBayar)} >
 
                             <div>
-                                <FontAwesomeIcon icon={faShoppingCart} className="pr-3"  />
+                                <FontAwesomeIcon icon={faShoppingCart} className="pr-3" />
                             </div>
 
                             Bayar Disini

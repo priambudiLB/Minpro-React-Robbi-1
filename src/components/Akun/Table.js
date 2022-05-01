@@ -40,13 +40,18 @@ const Tabel = ({ akuns, handleEdit, handleDelete }) => {
 
                             <td>
 
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={() => handleDelete(akun.id)}
-                                >
-                                    Hapus
+                                {((localStorage.getItem('accessToken'))) ?
 
-                                </button>
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => handleDelete(akun.id)}
+                                    >
+                                        Hapus
+
+                                    </button>
+
+                                    : <p>Unauthorized</p>}
+
 
                             </td>
 

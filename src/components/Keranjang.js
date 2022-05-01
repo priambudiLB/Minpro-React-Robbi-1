@@ -97,12 +97,19 @@ export default class Hasil extends Component {
         }
 
         axios
-            .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data)
+            .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data,
+                {
+                    headers: {
+
+                        authorization: localStorage.getItem('accessToken'),
+
+                    }
+                })
             .then((res) => {
                 this.props.getListKeranjang();
                 swal({
                     title: "Ubah Pesanan",
-                text: `Pesanan ${data.product.nama} Berhasil Di Ubah`,
+                    text: `Pesanan ${data.product.nama} Berhasil Di Ubah`,
                     icon: "success",
                     button: false,
                     timer: 1300
@@ -123,7 +130,14 @@ export default class Hasil extends Component {
         this.handleClose();
 
         axios
-            .delete(API_URL + "keranjangs/" + id)
+            .delete(API_URL + "keranjangs/" + id,
+                {
+                    headers: {
+
+                        authorization: localStorage.getItem('accessToken'),
+
+                    }
+                })
             .then((res) => {
                 this.props.getListKeranjang();
                 swal({

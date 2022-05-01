@@ -16,7 +16,7 @@ function Akun() {
 
     <div className="App">
 
-      { ((localStorage.getItem('accessToken'))) ? <Index /> : <h2>Unauthorized</h2> }
+      <Index />
 
     </div>
   );

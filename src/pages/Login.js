@@ -112,6 +112,11 @@ const Login = () => {
                     Kembali
                 </Button>
 
+                <div>
+                    Belum punya akun ?
+                    <a href="/akun" style={{ color: 'blue' }} className="m-4" variant="none">Buat Akun</a>
+                </div>
+
             </form>
         </div>
     )

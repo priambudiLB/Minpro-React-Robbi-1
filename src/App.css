@@ -73,3 +73,9 @@
   border: 1px solid rgb(15, 15, 87);
   color: white;
 }
+
+/* //----------------------------------------------------------- */
+
+.form-control {
+  text-align: center
+}

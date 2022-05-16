@@ -27,7 +27,7 @@ const Formulir = ({
             <Row>
                 <Col>
                     <Form
-                    onSubmit={handleSubmit} 
+                        onSubmit={handleSubmit}
                     >
 
                         <Form.Group>
@@ -49,7 +49,7 @@ const Formulir = ({
                                 type="password"
                                 name="nama"
                                 value={password}
-                            onChange={(event) => handleChange(event)}
+                                onChange={(event) => handleChange(event)}
                             />
 
                         </Form.Group>
@@ -62,7 +62,7 @@ const Formulir = ({
                                 rows={3}
                                 name="email"
                                 value={email}
-                            onChange={(event) => handleChange(event)}
+                                onChange={(event) => handleChange(event)}
                             />
 
                         </Form.Group>
@@ -74,7 +74,7 @@ const Formulir = ({
                                 type="text"
                                 name="address"
                                 value={address}
-                            onChange={(event) => handleChange(event)}
+                                onChange={(event) => handleChange(event)}
                             />
 
                         </Form.Group>
@@ -83,10 +83,11 @@ const Formulir = ({
 
                             <Form.Label>Join Date</Form.Label>
                             <Form.Control
+                                disabled
                                 type="text"
                                 name="join_date"
                                 value={join_date}
-                            onChange={(event) => handleChange(event)}
+                                onChange={(event) => handleChange(event)}
                             />
 
                         </Form.Group>
@@ -96,9 +97,10 @@ const Formulir = ({
                             <Form.Label>Phone</Form.Label>
                             <Form.Control
                                 type="text"
+                                style={{ textAlign: 'center' }}
                                 name="phone"
                                 value={phone}
-                            onChange={(event) => handleChange(event)}
+                                onChange={(event) => handleChange(event)}
                             />
 
                         </Form.Group>

@@ -4,6 +4,7 @@ import Tabel from './Table'
 import Formulir from './Formulir'
 import { API_URL } from './constants'
 import swal from 'sweetalert';
+import { getCurrentDate } from './getCurrentDate'
 
 //------------------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ export default class Index extends Component {
             email: "",
             Password: "",
             address: "",
-            join_date: "",
+            join_date: (getCurrentDate()),
             phone: "",
             id: "",
         }

@@ -53,6 +53,7 @@ const Menus = ({ menu, masukKeranjang, handleDelete, handleShowEdit, ModalEditPr
                         <>
 
                             <Button
+                                variant="warning"
                                 onClick={() => handleShowEdit(menu.id)}
                             >
                                 Edit

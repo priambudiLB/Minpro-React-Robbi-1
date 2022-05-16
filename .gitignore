@@ -40,3 +40,6 @@ users-backup.json
 
 #js
 Home-backup.js
+Home-backup-if.js
+Login-backup.js
+server-backup.js

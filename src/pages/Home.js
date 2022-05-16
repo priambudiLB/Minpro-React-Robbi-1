@@ -36,7 +36,7 @@ export default class Home extends Component {
       nama: "",
       quantity: 0,
       harga: 0,
-      gambar: "",
+      gambar: '',
       id: "",
     }
   }
@@ -46,80 +46,53 @@ export default class Home extends Component {
   // GET MENUS
 
   componentDidMount() {
+    axios
+      // .get(API_URL + "products")
+      .get(API_URL + "products?category.nama=" + this.state.categoryDipilih,
 
-    if ((localStorage.getItem('accessToken'))) {
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "products?category.nama=" + this.state.categoryDipilih,
-          {
-            headers: {
+      {
+        headers: {
 
-              authorization: localStorage.getItem('accessToken'),
+          authorization: localStorage.getItem('accessToken'),
 
-            }
-          }
-        )
-        .then((res) => {
+        }
+      }
+      )
+      .then((res) => {
 
-          console.log("respons :", res);
-          const menus = res.data;
-          this.setState({ menus });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "products?category.nama=" + this.state.categoryDipilih
-        )
-        .then((res) => {
-
-          console.log("respons :", res);
-          const menus = res.data;
-          this.setState({ menus });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }
+        console.log("respons :", res);
+        const menus = res.data;
+        this.setState({ menus });
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
     this.getListKeranjang();
 
     //----------------------------------------------------------------------------------------------------------------------
 
-    if ((localStorage.getItem('accessToken'))) {
-      axios
-        .get(API_URL + "categories",
-          {
-            headers: {
+    axios
+      .get(API_URL + "categories",
 
-              authorization: localStorage.getItem('accessToken'),
+      {
+        headers: {
 
-            }
-          }
-        )
-        .then((res) => {
+          authorization: localStorage.getItem('accessToken'),
 
-          const categories = res.data;
-          this.setState({ categories });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-      axios
-        .get(API_URL + "categories")
-        .then((res) => {
+        }
+      }
 
-          const categories = res.data;
-          this.setState({ categories });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }
+    )
+      .then((res) => {
+
+        const categories = res.data;
+        this.setState({ categories });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
   }
 
   //----------------------------------------------------------------------------------------------------------------------
@@ -127,108 +100,58 @@ export default class Home extends Component {
   // GET LIST KERANJANG YANG DI FILTER
 
   changeCategory = (value) => {
-
     this.setState({
       categoryDipilih: value,
       menus: [],
     })
 
-    if ((localStorage.getItem('accessToken'))) {
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "products?category.nama=" + value,
+    axios
+      // .get(API_URL + "products")
+      .get(API_URL + "products?category.nama=" + value,
 
-          {
-            headers: {
+        {
+          headers: {
 
-              authorization: localStorage.getItem('accessToken'),
+            authorization: localStorage.getItem('accessToken'),
 
-            }
           }
-        )
-        .then((res) => {
+        }
+      )
+      .then((res) => {
 
-          console.log("respons :", res);
-          const menus = res.data;
-          this.setState({ menus });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "products?category.nama=" + value
-        )
-        .then((res) => {
-
-          console.log("respons :", res);
-          const menus = res.data;
-          this.setState({ menus });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }
+        console.log("respons :", res);
+        const menus = res.data;
+        this.setState({ menus });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   //----------------------------------------------------------------------------------------------------------------------
 
-  // componentDidUpdate(prevState) {
-  //   if (this.state.keranjangs !== prevState.keranjangs) {
-
-  //     axios
-  //       // .get(API_URL + "products")
-  //       .get(API_URL + "keranjangs")
-  //       .then((res) => {
-
-  //         console.log("respons :", res);
-  //         const keranjangs = res.data;
-  //         this.setState({ keranjangs });
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //       })
-  //   }
-  // }
 
   getListKeranjang = () => {
+    axios
+      // .get(API_URL + "products")
+      .get(API_URL + "keranjangs",
 
-    if ((localStorage.getItem('accessToken'))) {
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "keranjangs",
+        {
+          headers: {
 
-          {
-            headers: {
+            authorization: localStorage.getItem('accessToken'),
 
-              authorization: localStorage.getItem('accessToken'),
-
-            }
           }
-        )
-        .then((res) => {
+        }
+      )
+      .then((res) => {
 
-          const keranjangs = res.data;
-          this.setState({ keranjangs });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    } else {
-      axios
-        // .get(API_URL + "products")
-        .get(API_URL + "keranjangs"
-        )
-        .then((res) => {
-
-          const keranjangs = res.data;
-          this.setState({ keranjangs });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }
+        const keranjangs = res.data;
+        this.setState({ keranjangs });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   } // INI AMBIL SEMUA DATA DARI KERANJANG
 
   //----------------------------------------------------------------------------------------------------------------------
@@ -261,12 +184,7 @@ export default class Home extends Component {
           }
 
           axios
-            .post(API_URL + "keranjangs", keranjang,
-              {
-                headers: {
-                  authorization: localStorage.getItem('accessToken'),
-                }
-              })
+            .post(API_URL + "keranjangs", keranjang)
             .then((res) => {
               this.getListKeranjang();
               swal({
@@ -290,12 +208,7 @@ export default class Home extends Component {
           }
 
           axios
-            .put(API_URL + "keranjangs/" + res.data[0].id, keranjang,
-              {
-                headers: {
-                  authorization: localStorage.getItem('accessToken'),
-                }
-              })
+            .put(API_URL + "keranjangs/" + res.data[0].id, keranjang)
             .then((res) => {
 
               swal({

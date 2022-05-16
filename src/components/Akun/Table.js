@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
+import { dateFormat } from './dateFormat'
 
 //------------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ const Tabel = ({ akuns, handleEdit, handleDelete }) => {
                             <td>{akun.name}</td>
                             <td>{akun.email}</td>
                             <td>{akun.address}</td>
-                            <td>{akun.join_date}</td>
+                            <td>{dateFormat(akun.join_date)}</td>
                             <td>{akun.phone}</td>
 
                             <td>

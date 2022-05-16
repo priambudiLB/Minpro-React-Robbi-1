@@ -79,7 +79,8 @@ const ModalAddProduct = ({
                         <Form.Control
                             name="gambar"
                             value={gambar}
-                            onChange={(event) => addProductChangeForm(event)} />
+                            // onChange={(event) => addProductChangeForm(event)} 
+                            disable/>
 
                     </Form.Group>
 

@@ -103,7 +103,7 @@ const ModalEditProduct = ({
                             <option value="" disabled>Pilih Category</option>
                             {categories.map((category) => {
 
-                                {
+                                // {
                                     if (category.id === pilihCategory.id) {
 
                                         return <option value={category.id} selected>{category.nama}</option>
@@ -111,7 +111,7 @@ const ModalEditProduct = ({
                                         return <option value={category.id} >{category.nama}</option>
 
                                     }
-                                }
+                                // }
 
                             })}
 
